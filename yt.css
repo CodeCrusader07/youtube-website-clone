@@ -1,8 +1,987 @@
-h1{
-    font-size: small;
-    text-align: center;
-    
+/* =========================================================
+   YOUTUBE CLONE — ENHANCED CSS
+   ========================================================= */
+
+
+/* =========================
+   GLOBAL RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-p{
-    background-color: aquamarine !important;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #0f0f0f;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    height: 64px;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #eeeeee;
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================
+   LEFT HEADER
+   ========================= */
+
+.left-section {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    min-width: 220px;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.menu-icon:hover {
+    background: #f2f2f2;
+}
+
+
+/* =========================
+   YOUTUBE LOGO
+   ========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    letter-spacing: -0.8px;
+
+    cursor: pointer;
+}
+
+.logo i {
+    color: #ff0000;
+
+    font-size: 30px;
+
+    transition: transform 0.2s;
+}
+
+.logo:hover i {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   SEARCH AREA
+   ========================================================= */
+
+.search-section {
+    width: min(620px, 45%);
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.search-section input {
+    width: 100%;
+    height: 42px;
+
+    border: 1px solid #c6c6c6;
+
+    border-radius: 22px 0 0 22px;
+
+    padding: 0 18px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #111;
+
+    background: white;
+
+    transition: 0.2s;
+}
+
+.search-section input:focus {
+    border-color: #1c62b9;
+
+    box-shadow:
+        inset 1px 0 0 #1c62b9,
+        inset 0 1px 0 #1c62b9,
+        inset 0 -1px 0 #1c62b9;
+}
+
+.search-section input::placeholder {
+    color: #777;
+}
+
+
+/* Search Button */
+
+.search-btn {
+    height: 42px;
+
+    width: 64px;
+
+    border: 1px solid #c6c6c6;
+
+    border-left: none;
+
+    border-radius: 0 22px 22px 0;
+
+    background: #f8f8f8;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.2s;
+}
+
+.search-btn:hover {
+    background: #eeeeee;
+}
+
+
+/* Microphone */
+
+.mic-btn {
+    width: 42px;
+    height: 42px;
+
+    margin-left: 12px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.mic-btn:hover {
+    background: #dedede;
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   RIGHT HEADER
+   ========================================================= */
+
+.right-section {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    min-width: 220px;
+
+    justify-content: flex-end;
+}
+
+.right-section > i {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.right-section > i:hover {
+    background: #f2f2f2;
+}
+
+
+/* Profile */
+
+.profile {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #673ab7,
+        #3f51b5
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s;
+}
+
+.profile:hover {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 64px;
+    left: 0;
+    bottom: 0;
+
+    width: 235px;
+
+    padding: 14px 12px;
+
+    background: #ffffff;
+
+    overflow-y: auto;
+
+    z-index: 900;
+}
+
+
+/* Sidebar Item */
+
+.side-item {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 10px 14px;
+
+    margin-bottom: 3px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s,
+        transform 0.15s;
+}
+
+.side-item:hover {
+    background: #f2f2f2;
+}
+
+.side-item:active {
+    transform: scale(0.98);
+}
+
+.side-item i {
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 18px;
+}
+
+.side-item span {
+    white-space: nowrap;
+}
+
+
+/* Active */
+
+.side-item.active {
+    background: #f2f2f2;
+
+    font-weight: 600;
+}
+
+.side-item.active i {
+    font-size: 19px;
+}
+
+
+/* Divider */
+
+.sidebar hr {
+    border: none;
+
+    border-top: 1px solid #e5e5e5;
+
+    margin: 15px 0;
+}
+
+
+/* Sidebar Heading */
+
+.sidebar h3 {
+    font-size: 16px;
+
+    margin: 15px 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 235px;
+
+    padding:
+        80px 28px 40px;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   CATEGORY BAR
+   ========================================================= */
+
+.categories {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+
+.category {
+    flex-shrink: 0;
+
+    border: none;
+
+    padding: 9px 16px;
+
+    border-radius: 9px;
+
+    background: #f2f2f2;
+
+    color: #0f0f0f;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.15s;
+}
+
+.category:hover {
+    background: #dedede;
+}
+
+.category:active {
+    transform: scale(0.96);
+}
+
+.active-category {
+    background: #0f0f0f;
+
+    color: white;
+}
+
+.active-category:hover {
+    background: #272727;
+}
+
+
+/* =========================================================
+   VIDEO GRID
+   ========================================================= */
+
+.video-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 38px 20px;
+}
+
+
+/* =========================================================
+   VIDEO CARD
+   ========================================================= */
+
+.video-card {
+    min-width: 0;
+
+    cursor: pointer;
+
+    border-radius: 12px;
+
+    transition: transform 0.2s;
+}
+
+.video-card:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   THUMBNAIL
+   ========================================================= */
+
+.thumbnail {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 11px;
+
+    background: #eeeeee;
+
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08);
+
+    transition:
+        border-radius 0.2s,
+        box-shadow 0.2s;
+}
+
+.video-card:hover .thumbnail {
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Thumbnail Image */
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.3s;
+}
+
+.video-card:hover .thumbnail img {
+    transform: scale(1.04);
+
+    filter: brightness(0.92);
+}
+
+
+/* =========================================================
+   VIDEO DURATION
+   ========================================================= */
+
+.duration {
+    position: absolute;
+
+    right: 7px;
+    bottom: 7px;
+
+    padding: 4px 6px;
+
+    border-radius: 4px;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   VIDEO INFORMATION
+   ========================================================= */
+
+.video-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 12px;
+}
+
+
+/* Channel Logo */
+
+.channel-logo {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #555,
+            #222
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* Video Title */
+
+.video-info h3 {
+    margin: 0 0 6px;
+
+    font-size: 15px;
+
+    line-height: 1.35;
+
+    font-weight: 600;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* Channel / Metadata */
+
+.video-info p {
+    margin: 2px 0;
+
+    color: #606060;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   VIDEO CARD SKELETON-LIKE HOVER
+   ========================================================= */
+
+.video-card::after {
+    content: "";
+
+    display: block;
+
+    height: 2px;
+
+    width: 0;
+
+    background: #ff0000;
+
+    margin-top: 8px;
+
+    border-radius: 5px;
+
+    transition: width 0.3s ease;
+}
+
+.video-card:hover::after {
+    width: 25%;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .video-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .main-content {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 82px;
+
+        padding:
+            12px 8px;
+    }
+
+    .side-item {
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        padding: 12px 4px;
+    }
+
+    .side-item span {
+        font-size: 10px;
+    }
+
+    .side-item i {
+        font-size: 18px;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 82px;
+    }
+
+    .video-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .search-section {
+        width: 40%;
+    }
+
+    .left-section {
+        min-width: auto;
+    }
+
+    .right-section {
+        min-width: auto;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .header {
+        height: 58px;
+
+        padding: 0 10px;
+
+        gap: 8px;
+    }
+
+    .sidebar {
+        top: 58px;
+
+        width: 66px;
+    }
+
+    .main-content {
+        margin-left: 66px;
+
+        padding:
+            70px 12px 30px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .logo i {
+        font-size: 28px;
+    }
+
+    .left-section {
+        gap: 5px;
+    }
+
+    .search-section {
+        width: 52%;
+    }
+
+    .search-section input {
+        height: 38px;
+
+        font-size: 13px;
+
+        padding-left: 12px;
+    }
+
+    .search-btn {
+        width: 48px;
+
+        height: 38px;
+    }
+
+    .mic-btn {
+        width: 36px;
+        height: 36px;
+
+        margin-left: 5px;
+    }
+
+    .right-section {
+        gap: 2px;
+    }
+
+    .right-section > i {
+        display: none;
+    }
+
+    .profile {
+        width: 32px;
+        height: 32px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .categories {
+        margin-bottom: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .menu-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .search-section {
+        width: 58%;
+    }
+
+    .search-section input {
+        border-radius: 20px 0 0 20px;
+    }
+
+    .search-btn {
+        border-radius: 0 20px 20px 0;
+    }
+
+    .mic-btn {
+        display: none;
+    }
+
+    .video-info h3 {
+        font-size: 14px;
+    }
+
+    .video-info p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE READY
+   Add class "dark-mode" to body if needed
+   ========================================================= */
+
+body.dark-mode {
+    background: #0f0f0f;
+
+    color: #ffffff;
+}
+
+body.dark-mode .header,
+body.dark-mode .sidebar {
+    background: #0f0f0f;
+
+    border-color: #303030;
+}
+
+body.dark-mode .side-item:hover,
+body.dark-mode .side-item.active {
+    background: #272727;
+}
+
+body.dark-mode .category {
+    background: #272727;
+
+    color: white;
+}
+
+body.dark-mode .active-category {
+    background: white;
+
+    color: black;
+}
+
+body.dark-mode .video-info p {
+    color: #aaaaaa;
+}
+
+body.dark-mode .search-section input {
+    background: #121212;
+
+    color: white;
+
+    border-color: #303030;
+}
+
+body.dark-mode .search-btn,
+body.dark-mode .mic-btn {
+    background: #272727;
+
+    color: white;
+
+    border-color: #303030;
 }
